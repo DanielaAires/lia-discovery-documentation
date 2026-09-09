@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor U as Usuário
+    participant L as LIA
+    participant R as RAG
+    participant M as Modelo de Linguagem
+    participant LG as Logs/Métricas
+
+    U->>L: Envia pergunta
+    L->>R: Solicita contexto relevante
+    R-->>L: Retorna contexto
+    L->>M: Envia pergunta + contexto
+    M-->>L: Gera resposta
+    L->>LG: Registra interação
+    L-->>U: Exibe resposta

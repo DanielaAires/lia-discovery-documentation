@@ -1,0 +1,17 @@
+flowchart TB
+    U[Usuário]
+    L[LIA - Lean Intelligent Assistant]
+    R[RAG / Base de Conhecimento]
+    M[Modelo de Linguagem]
+    A[Administração]
+    LG[Logs e Métricas]
+
+    U -->|Pergunta| L
+    L -->|Busca contexto| R
+    R -->|Contexto relevante| L
+    L -->|Pergunta + contexto| M
+    M -->|Resposta gerada| L
+    L -->|Resposta| U
+
+    A -->|Gerencia| R
+    L -->|Registra uso| LG
